@@ -1,0 +1,36 @@
+﻿@model PersonalMvc.Models.Personal
+@{ 
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Редактировать сотрудника</h2>
+<hr />
+<div>
+    @using (Html.BeginForm())
+    {
+        <p>
+            @Html.LabelFor(model => model.Name)
+            <br />
+            @Html.EditorFor(model => model.Name)
+        </p>
+        <p>
+            @Html.LabelFor(model => model.Salary)
+            <br />
+            @Html.EditorFor(model => model.Salary)
+        </p>
+        <p>
+            @Html.LabelFor(model => model.Profession.Name)
+            <br />
+            @Html.DropDownListFor(model => model.ProfessionId, ViewBag.Professions as SelectList)
+        </p>
+        <p>
+            @Html.LabelFor(model => model.Department.Name)
+            <br />
+            @Html.DropDownListFor(model => model.DepartmentId, ViewBag.Departments as SelectList)
+        </p>
+        <input type="submit" value="Редактировать" />
+    }
+</div>

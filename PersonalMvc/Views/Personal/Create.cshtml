@@ -1,0 +1,37 @@
+﻿@model PersonalMvc.Models.Personal
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Добавить сотрудника</h2>
+
+@using (Html.BeginForm())
+{
+    <p>
+        @Html.LabelFor(model => model.Name)
+        <br />
+        @Html.EditorFor(model => model.Name)
+    </p>
+    <p>
+        @Html.LabelFor(model => model.Salary)
+        <br />
+        @Html.EditorFor(model => model.Salary)
+    </p>
+    <p>
+        @Html.LabelFor(model => model.Profession.Name)
+        <br />
+        @Html.DropDownListFor(model => model.ProfessionId, ViewBag.Professions as SelectList)
+    </p>
+    <p>
+        @Html.LabelFor(model => model.Department.Name)
+        <br />
+        @Html.DropDownListFor(model => model.DepartmentId, ViewBag.Departments as SelectList)
+    </p>
+    <br />
+    <input type="submit" value="Добавить" />
+}
+<br />
+<div>
+    @Html.ActionLink("На главную", "Index")
+</div>
